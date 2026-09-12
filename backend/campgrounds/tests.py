@@ -143,3 +143,21 @@ class ReviewListCreateViewTests(CampgroundAPITestCase):
             format="json",
         )
         self.assertEqual(response.status_code, 404)
+
+    def test_rate_limits_review_posting_per_ip(self):
+        from campgrounds.views import REVIEW_POST_LIMIT_PER_HOUR
+
+        for i in range(REVIEW_POST_LIMIT_PER_HOUR):
+            response = self.client.post(
+                f"/api/campgrounds/{self.campground_id}/reviews/",
+                {"author": f"User{i}", "rating": 5, "comment": ""},
+                format="json",
+            )
+            self.assertEqual(response.status_code, 201)
+
+        response = self.client.post(
+            f"/api/campgrounds/{self.campground_id}/reviews/",
+            {"author": "OneTooMany", "rating": 5, "comment": ""},
+            format="json",
+        )
+        self.assertEqual(response.status_code, 429)

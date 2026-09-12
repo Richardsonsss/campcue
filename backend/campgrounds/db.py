@@ -24,3 +24,7 @@ def campgrounds_collection():
 
 def reviews_collection():
     return get_db()["reviews"]
+
+
+def rate_limits_collection():
+    return get_db()["rate_limits"]

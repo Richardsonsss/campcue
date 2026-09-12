@@ -8,6 +8,9 @@ from rest_framework.views import APIView
 
 from .db import campgrounds_collection, reviews_collection
 from .serializers import ReviewInputSerializer, serialize_campground, serialize_review
+from .throttling import enforce_rate_limit
+
+REVIEW_POST_LIMIT_PER_HOUR = 5
 
 DEFAULT_LIMIT = 20
 MAX_LIMIT = 100
@@ -178,6 +181,8 @@ class ReviewListCreateView(APIView):
         })
 
     def post(self, request, campground_id):
+        enforce_rate_limit(request, "review_post", limit=REVIEW_POST_LIMIT_PER_HOUR)
+
         oid = _object_id_or_none(campground_id)
         if oid is None:
             return Response({"detail": "Invalid campground id."}, status=404)
