@@ -1,12 +1,12 @@
 import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { GOOGLE_MAPS_API_KEY, useGoogleMaps } from "../mapsLoader.jsx";
+import { GOOGLE_MAPS_API_KEY, useGoogleMapsLoader } from "../mapsLoader.jsx";
 
 const containerStyle = { width: "100%", height: "100%" };
 
 export default function MapView({ center, zoom = 10, markers = [] }) {
-  const { isLoaded, loadError } = useGoogleMaps();
+  const { isLoaded, loadError } = useGoogleMapsLoader();
   const [activeMarkerId, setActiveMarkerId] = useState(null);
   const mapRef = useRef(null);
 
