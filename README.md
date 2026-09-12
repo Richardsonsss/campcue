@@ -178,7 +178,3 @@ instead (see `data_pipeline/README.md` for how the sample data is loaded).
 | `GET /api/campgrounds/nearby/` | Geospatial search (`lat`, `lng`, `radius_km`) |
 | `GET /api/campgrounds/<id>/reviews/` | List reviews for a campground |
 | `POST /api/campgrounds/<id>/reviews/` | Add a review (`author`, `rating` 1-5, `comment`); recomputes the campground's average rating |
-
-## License
-
-[MIT](LICENSE)
