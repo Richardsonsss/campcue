@@ -83,7 +83,6 @@ data_pipeline/fetch_ridb_data.py --> real_campgrounds.json --> MongoDB Atlas ("c
 |---|---|---|
 | Frontend | Firebase Hosting | https://campcue.web.app |
 | Backend API | Cloud Run | https://campground-backend-793519184426.us-central1.run.app/api |
-| Database | MongoDB Atlas | (private connection string) |
 
 All on free tiers - should run at $0/month for light hobby traffic. See
 [`deploy/README.md`](deploy/README.md) for the exact commands and the
