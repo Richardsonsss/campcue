@@ -21,7 +21,7 @@ export default function ReviewForm({ onSubmit, submitting }) {
 
   return (
     <form className="review-form" onSubmit={handleSubmit}>
-      <h4>Leave a review</h4>
+      <h4>Comments</h4>
       {validationError && <p className="status-message error">{validationError}</p>}
       <div className="form-row">
         <label>
@@ -47,7 +47,7 @@ export default function ReviewForm({ onSubmit, submitting }) {
         />
       </label>
       <button type="submit" disabled={submitting}>
-        {submitting ? "Submitting..." : "Submit review"}
+        {submitting ? "Submitting..." : "Submit"}
       </button>
     </form>
   );
