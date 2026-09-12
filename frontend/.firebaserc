@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "campview-481720-1cbfa"
+  },
+  "targets": {
+    "campview-481720-1cbfa": {
+      "hosting": {
+        "campcue": ["campcue"]
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.sqlite3
+
+# Django
+backend/.env
+data_pipeline/.env
+data_pipeline/.env.atlas
+/backend_env_vars.yaml
+/*_deploy_log*.txt
+/*_update_log*.txt
+/cloud_run_logs*.json
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.firebase/
+frontend/.env
+frontend/.env.production
+
+# Data pipeline outputs (regenerate with fetch_ridb_data.py / generate_sample_data.py + clean_and_load.py)
+data_pipeline/raw_data/
+data_pipeline/cleaned_campgrounds.csv
+data_pipeline/cleaned_campgrounds.json
+data_pipeline/real_campgrounds.json
+
+# Local portable MongoDB (binaries + data, machine-specific)
+.mongodb/
+
+# OS
+.DS_Store
+Thumbs.db

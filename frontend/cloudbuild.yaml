@@ -1,0 +1,15 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "--build-arg"
+      - "VITE_API_BASE_URL=${_API_URL}"
+      - "--build-arg"
+      - "VITE_GOOGLE_MAPS_API_KEY=${_MAPS_KEY}"
+      - "-t"
+      - "gcr.io/${PROJECT_ID}/campground-frontend"
+      - "."
+images:
+  - "gcr.io/${PROJECT_ID}/campground-frontend"
+options:
+  logging: CLOUD_LOGGING_ONLY
